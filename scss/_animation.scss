@@ -1,0 +1,25 @@
+@-webkit-keyframes loader {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0 green;
+		height: 4em;
+	}
+	40% {
+		box-shadow: 0 -2em green;
+		height: 5em;
+	}
+}
+
+@keyframes loader {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0  green;
+		height: 4em;
+	}
+	40% {
+		box-shadow: 0 -2em  green;
+		height: 5em;
+	}
+}

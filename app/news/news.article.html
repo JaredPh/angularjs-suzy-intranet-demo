@@ -1,0 +1,30 @@
+<ui:view>
+	
+	<h1 class="page-heading">News</h1>
+
+	<page:breadcrumb></page:breadcrumb>
+	
+	<div id="news-article">
+		<header>
+			<h2 class="title" data-ng-cloak>
+				{{mainStory.title}}
+				<a data-ui-sref=".edit" data-ng-show="mainStory.editable">Edit</a>
+			</h2>
+
+			<tags data-tag-list="mainStory.tags"></tags>
+
+		</header>
+
+		<img class="feature" data-ng-src="{{mainStory.image.url}}" data-ng-class="mainStory.image.layout"/>
+		<div data-ng-bind-html="mainStory.intro"></div>
+		<div data-ng-bind-html="mainStory.body"></div>
+
+		<a class="edit-link" data-ui-sref=".edit">&nbsp;</a>
+	</div>
+
+	
+	<div class="news side col-1" data-ng-repeat="story in stories track by $index">
+		<news:preview data-format="format" data-article="story"></news:preview>
+	</div>
+
+<ui:view>

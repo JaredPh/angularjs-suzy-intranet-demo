@@ -1,0 +1,32 @@
+[data-feed-item] {
+		
+	&.col-1 {@include span(1);}
+	&.col-2 {@include span(2);}
+	&.col-3 {@include span(3);}
+	&.col-4 {@include span(4);}
+
+	margin-top: gutter();
+	margin-bottom: gutter();
+
+	height: $row-height;
+}
+
+.feed .show-more {
+
+	@include full;
+
+	padding: gutter() 0;
+	text-align: center;
+	
+	a {
+    	padding: 4px 8px 4px 26px;
+
+    	@include es-bg-icon-pos(20px,4px);
+		@include es-bg-icon('arrow-1-down','n');
+
+		border: 1px solid $navy;
+    	color: $navy;
+
+    	@include es-dropshadow;
+	}
+}

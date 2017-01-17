@@ -1,0 +1,172 @@
+#topbar {
+	
+	background-color: $white;
+	@include es-dropshadow;
+
+	> ul {
+		@include span(1 of 2 nest);
+		height:100%;
+
+		& + ul > li {
+			float: right;
+		}
+		> li {
+			position: relative;
+			
+			float: left;
+			
+			width: $topbar-height;
+			height: 100%;
+
+			> a {
+				display: inline-block;
+				height: $topbar-height;
+				width: $topbar-height;
+
+				@include es-btn-opacity;
+				@include es-bg-icon-pos(22px);
+			}
+
+			
+			&.search {
+				
+				width: auto;
+
+				div {
+					display: none;
+    				
+    				padding: 8px 8px 8px 0;
+
+    				width: 250px;
+    				height: $topbar-height - 24px;
+    				
+    				float: right;
+				}
+
+				&:hover {
+					a {
+						@include es-btn-opacity-force-hover;
+					}
+					
+					div {
+    					display: block;
+    				}
+    			}
+
+				input {
+    				display: inline;
+    				
+    				width: 100%;
+    				height: 100%;
+
+    				border: none;
+    				border-bottom: 2px solid rgba($black, 0.5);
+    			}
+			}
+
+			&.badge:after {
+
+				$badge-size: 16px;
+
+				display: inline-block;
+				content: attr(data-badge);
+				
+				position: absolute;
+				padding: 1px 3px;
+
+				top: $topbar-height/2 - $badge-size;
+				left: $topbar-height/2 + 3px;
+
+				height:$badge-size;
+				min-width:$badge-size;
+				
+				line-height: $badge-size;
+				
+				background-color:$badge-color;
+				color: $white;
+				font-size: $badge-size*0.7;
+				font-weight: bold;
+				text-align:center;
+
+				border-radius: 999px;
+			}
+		}
+	}
+}
+
+@mixin es-topbar-menu($width) {
+	
+	display: none;
+
+	li:hover & {display: block;}
+	
+	$height: 12px;
+	$border-width: 1px;
+	$border-color: rgba(#000,0.15);
+	$body-color: #ffffff;
+
+	position: absolute;
+
+	left: -$width/2;
+	top: -5px;
+
+	margin-left: 50%;
+	margin-top: 100%;
+
+	width: $width;
+		
+	background: $white;
+
+	border: $border-width solid $grey-one;
+	border-radius: 5px;
+
+	&:after, &:before {
+		position: absolute;
+
+		content: " ";
+
+		left: 50%;
+		bottom: 100%;
+		
+		height: 0;
+		width: 0;
+
+		border: solid transparent;
+			
+		pointer-events: none;
+	}
+
+	&:before {
+		border-bottom-color: $grey-one;
+		border-width: $height + $border-width;
+		margin-left: -$height + -$border-width;
+	}
+
+	&:after {
+		border-bottom-color: $white;
+		border-width: $height;
+		margin-left: -$height;
+	}
+}
+
+[data-page-topbar-menu] {
+	@include es-topbar-menu(180px);
+	
+	ul {
+		display: block;
+		padding: 5px 0;
+
+		li {
+			display: block;
+
+			a {
+				padding: 5px 5px 5px 36px;
+				display: block;
+				font-size: 14px;
+				color: #000;
+				
+				@include es-bg-icon-pos(18px, 12px, center);
+			}
+		}
+	}
+}

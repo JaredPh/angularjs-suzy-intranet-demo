@@ -1,0 +1,5 @@
+<section class="news">
+	<h2 data-ng-if="heading.value" data-ng-bind="heading.value | append:' >'" data-ng-click="setRoute()"></h2>
+	
+	<news:preview data-ng-repeat="format in formatArr track by $index" data-article="articles[$index]"></news:preview>
+</section>

@@ -1,0 +1,192 @@
+#sidebar {
+	
+	background-color: $navy;
+
+	@at-root #header {
+		
+		display: block;
+		
+		width: 100%;
+		height: $topbar-height;
+
+		text-align: center;
+		
+		h1 {
+			display: inline-block;
+			
+			height: 100%;
+			line-height: $topbar-height;
+
+			padding-left: $topbar-height;
+
+			font-family: museosansrounded-500;
+			color: $white;
+
+			@include es-bg-icon('cloud','o');
+			@include es-bg-icon-pos($topbar-height*0.8, left);
+		}
+	}
+
+	&.min #header h1 {
+		background-position: center center;
+		text-indent: -999px;
+	}
+
+	.menu {
+		margin-top: 16px;
+
+		> li {	
+			position: relative;
+			height: 42px;
+
+			&:hover {
+				background-color: rgba($white,0.1);
+			}
+
+			> a {
+				display: block;
+
+				height: 100%;
+				line-height: 42px;
+
+				padding-left: 56px;
+
+				color: $white;
+				
+				@include es-btn-opacity;
+				@include es-bg-icon-pos($topbar-height*0.45, 16px);
+			}
+
+			&.apps {
+				
+				ul {
+					@extend %side-menu;
+
+					li {
+						display: inline-block;				
+						position: relative;
+		
+						margin: 8px 0 16px 8px;
+						
+						width: 35px;
+						height: 35px;
+
+						border-radius: 5px;
+						
+						&:hover {
+							background-color: white;
+							
+							&.new {background-color: transparent;}
+					
+						}
+
+						a {
+							position: absolute;
+
+							left: -3px;
+							right: -3px;
+
+							padding-top: 36px;
+							
+							text-align: center;
+							font-size: 10px;
+
+							color: white;
+
+							@include es-bg-icon-pos('',center, 5px);
+						}
+
+						&.alm a     {@include es-bg-img('alm','apps');}
+						&.buildr a  {@include es-bg-img('buildr','apps');}
+						&.dbanet a  {@include es-bg-img('dbanet','apps');}
+						&.keyedin a {@include es-bg-img('keyedin','apps');}
+						&.lab a     {@include es-bg-img('lab','apps');}
+						&.imaging a {@include es-bg-img('imaging','apps');}
+						&.monster a {@include es-bg-img('monster','apps');}
+						
+						&.esure4u a {
+							@include es-bg-img('esure4u','apps');
+							@include es-bg-icon-pos('',center, 10px);
+						} 
+
+						&.new {
+							@include es-bg-icon-pos;
+							@include es-btn-opacity;
+						}
+					}
+				}
+
+				&:hover ul {
+					display: block !important;
+				}
+			}
+		}
+	} 
+
+	&.min .menu > li > a {
+		text-indent: -999px;
+		@include es-bg-icon-pos('',center,center);
+	}
+		
+	%side-menu {
+		display: none;
+		position: absolute;
+
+		top: -8px;
+		left: 100%;
+
+		width: 230px;
+
+		background-color: $grey-two;
+
+		border: 1px solid $grey-one;
+		border-radius: 5px;
+
+		&:after, &:before {
+			position: absolute;
+
+			content: ' ';
+
+			top: 16px;
+			right: 100%;
+			
+			height: 0;
+			width: 0;
+
+			border: solid transparent;
+				
+			pointer-events: none;
+		}
+
+		&:after {
+			border-width: 12px;
+			border-right-color: $grey-two;
+		}
+
+		&:before {
+			margin-top: -1px;
+
+			border-right-color: $grey-one;
+			border-width: 13px;
+		}
+	}
+
+}
+
+#sidebar-right {
+	padding: 20px 0;
+
+	background-color: $white;
+	border-left: 1px solid $grey-one;
+
+}
+
+#sidebar .department-menu {
+    position: fixed;
+    top: 50px;
+    left: 200px;
+    right: 0;
+    
+    background-color: pink;//$white;
+	@include es-dropshadow;
+}

@@ -1,0 +1,62 @@
+.link, .btn {
+
+	&.add-file 		{@include es-menu-icon('add_file');}
+	&.apps			{@include es-menu-icon('app');}
+	&.calendar 		{@include es-menu-icon('calendar');}
+	&.contacts 		{@include es-menu-icon('vcard');}
+	&.edit 			{@include es-menu-icon('edit-file');}
+	&.documents     {@include es-menu-icon('file');}
+	&.menu          {@include es-menu-icon('menu');}
+	&.new           {@include es-menu-icon('add');}
+	&.news          {@include es-menu-icon('news');}
+	&.notifications {@include es-menu-icon('speech');}
+	&.search        {@include es-menu-icon('search');}
+	&.widgets       {@include es-menu-icon('star');}
+}
+
+%std-font {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.modal {
+	
+	p.action {
+
+		text-align: right;
+		margin-bottom: 0;
+
+		a {
+			background-position: right 8px center;
+			background-repeat: no-repeat;
+
+			border: 2px solid;
+			background-size: 16px;
+
+			font-family: museosansrounded-500;
+			font-size: 16px;
+    		line-height: 36px;
+
+    		border-color: $es-orange;
+			background-color: $es-orange;
+			color: $white;
+
+			display: inline-block;
+			height: 36px;
+			margin-left: 16px;
+			padding: 0 40px 0 8px;
+    		
+    		&.primary   {}
+    		&.secondary {
+				background-color: $white;
+				color: $es-orange;
+    		}
+
+    		&.ok     {@include background-icon('ok','this','o');}
+    		&.cancel {@include background-icon('cancel','this','w');}
+		}
+	}
+}
+
+footer {
+	background: #444;
+}

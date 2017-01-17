@@ -1,0 +1,5 @@
+<section class="feed">
+	<div data-feed-item data-ng-repeat="item in feedItems | maxCount:pattern.length" data-item="item" data-ng-class="['col-'+pattern[$index]]"></div>
+	
+	<div class="show-more"><a data-ng-click="showMore()">Show More</a></div>
+</section>

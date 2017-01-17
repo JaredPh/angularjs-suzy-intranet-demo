@@ -1,0 +1,81 @@
+/* Reset ****/
+@import 'normalize';
+
+:focus {outline:none;}
+h1, h2, h3, h4, ul, li {margin: 0; padding: 0}
+li {list-style: none;}
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+@font-face{
+	font-family: museosansrounded-300;
+	src: url(../fonts/museosansrounded300_ttf.ttf);
+}
+
+@font-face{
+	font-family: museosansrounded-500;
+	src: url(../fonts/museosansrounded500_ttf.ttf);
+}
+
+@font-face{
+	font-family: museosansrounded-700;
+	src: url(../fonts/museosansrounded700_ttf.ttf);
+}
+
+/* Libraries ****/
+@import 'susy', 'sussy_config';
+@import 'functions', 'mixins';
+
+/* Varibles ****/
+$es-orange: #f48e1e;
+$es-navy: #0971b0;
+
+$navy: darken($es-navy,10%);
+$black: #000;
+$white: #ffffff;
+$blue-one: rgba($es-navy,0.5);
+
+$grey-one: rgba($black, 0.15);
+$grey-two: #3A3A3A;
+$grey-three: #332729;
+
+$red: #D24639;
+$green: #99C185;
+
+$badge-color: $red;
+
+$img-path: 'img';
+$icon-path: 'icons';
+
+$std-icon-size: 26px;
+
+$sidebar-width: 200px;//240px;
+$sidebar-width-min: 80px;
+$sidebar-width-right: 216px;
+$topbar-height: 50px;
+
+$row-height: 350px;
+
+@import 'grid', 'animation';
+
+body {background-color: #F5F5F5;@extend %std-font;}
+h1,h2,h3 { color:$navy;}
+a {color: $es-navy;}
+
+.breadcrumb {color: $es-orange;}
+
+/* Vendors ****/
+@import '../vendors/ngDialog/css/ngDialog';
+@import '../vendors/ngDialog/css/ngDialog-theme-default.scss';
+@import '../vendors/ngDialog/css/ngDialog-theme-plain';
+
+@import '../vendors/chartist/scss/chartist.scss';
+
+/* Components ****/
+@import 'content','topbar','sidebar','people';
+@import 'widgets.weather', 'widgets.stock', 'widgets.poll';
+
+/* Theme ****/
+@import 'theme';

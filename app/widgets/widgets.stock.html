@@ -1,0 +1,16 @@
+<section class="widget stock" data-ng-class="{down: data.price.change.pence < 0}">
+	
+	<div class="current">
+		<h3>ESUR.L</h3>
+		
+		<div data-ng-show="data.price">
+			<span class="price">{{data.price.current | twoDp}}</span>
+			<span class="change">{{data.price.change.pence | twoDp:true}}p ({{data.price.change.percent | twoDp:true}}%)</span>
+		</div>
+	</div>
+
+	<div class="ct-chart ct-golden-section"></div>
+	<small data-ng-show="data.history">Last 12 Months</small>
+
+	<div class="loader" data-ng-hide="data.price"></div>
+</section>

@@ -1,0 +1,5 @@
+<ul class="tags">
+	<li data-ng-class="getTagClasses(tag)" data-ng-repeat="tag in tags" data-ng-click="goToFeed($event,tag)">{{tag}}<a class="remove" data-ng-show="add"></a></li>
+	
+	<li class="add" data-ng-show="add">Add</li>
+</ul>

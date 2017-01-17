@@ -1,0 +1,47 @@
+.page-heading, .breadcrumb {
+	@include span(4);
+}
+
+%main-feature-with-sidebar {
+	@include span(3);
+	
+	margin-top: gutter();
+	margin-bottom: gutter();
+
+	padding-top: 8px;
+	padding-bottom: 8px;
+
+	background-color: $white;
+
+	> div, header {
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+}	
+
+%tags {
+
+	li {
+		float: right;
+
+		margin-left: 5px;
+		padding: 2px 5px 2px (4px + 12px + 4px);
+		
+		font-size: 12px;
+		
+		border-radius: 99px;
+		
+		border: 1px solid $navy;
+		color: $es-navy;
+
+		list-style: none !important;
+
+		@include es-bg-icon-pos(12px,4px);
+		@include es-bg-icon('tag','n');
+
+		&.location {@include es-bg-icon('pin','n');}
+	}
+}
+
+@import 'news';
+@import 'feed';

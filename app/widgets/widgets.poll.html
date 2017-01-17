@@ -1,0 +1,16 @@
+<section class="widget poll">
+	<div class="text">
+		<h3>{{poll.title}}</h3>
+		<p class="body">{{poll.body}}</p>
+		
+		<span class="date" data-ng-cloak>{{poll.date | timeago:'time'}}</span>
+		
+		<ul>
+			<li data-ng-repeat="option in options track by index">
+				Hello
+			</li>
+		</ul>
+
+		<tags data-tag-list="poll.tags"></tags>
+	</div>
+</section>

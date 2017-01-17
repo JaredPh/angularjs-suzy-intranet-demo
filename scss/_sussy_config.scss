@@ -1,0 +1,12 @@
+$susy: (
+	columns: 4,
+	container: 100%,
+	global-box-sizing: border-box,
+	gutters: 1/12,
+	gutter-position: split,
+	debug: (
+		image: hide
+	)
+);
+
+//@include border-box-sizing;

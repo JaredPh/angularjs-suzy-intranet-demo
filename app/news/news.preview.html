@@ -1,0 +1,10 @@
+<article class="preview" data-ng-class="getFormatClass()" data-ng-click="gotoArticle()">
+	<div class="image" data-ng-style="getBackground()"></div>
+	<div class="text">
+		<h3 data-ng-cloak>{{article.title}}</h3>
+		<div class="abstract" data-ng-bind-html="article.intro"></div>
+		<span class="date" data-ng-cloak>{{article.date | timeago:'time'}}</span>
+		
+		<tags data-tag-list="article.tags"></tags>
+	</div>
+</article>

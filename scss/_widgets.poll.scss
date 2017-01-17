@@ -1,0 +1,50 @@
+.widget.poll {
+
+    width:100%;
+    height: 100%;
+
+    position: relative;
+
+    background-color: $white;
+    @include es-dropshadow;
+
+    .text {
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        
+        > * {
+            margin: 0 8px;
+        }
+
+        h3 {
+            margin-top: 16px;
+            line-height: 20px;
+        }
+
+        .body {
+            margin-top: 14px;
+            font-size: 14px;
+            max-height: 90px;
+            overflow: hidden;
+        }
+        
+        .date {
+            @include es-bg-icon-pos(16px,left);
+            @include es-bg-icon('time','n');
+            padding-left: 20px;
+
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .tags {
+            @extend %tags;
+            position: absolute;
+
+            bottom: 8px;
+            right: 0;
+        }
+    }
+}

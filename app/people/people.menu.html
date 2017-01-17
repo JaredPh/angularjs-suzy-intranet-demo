@@ -1,0 +1,4 @@
+<input type="search" data-ng-model="filterText">
+<ul>
+	<people:card person="person" data-ng-repeat="person in people | peopleMenuFilter:filterText | orderBy:'-score'"></people:card>
+</ul>

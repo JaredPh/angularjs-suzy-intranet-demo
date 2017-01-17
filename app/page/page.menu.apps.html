@@ -1,0 +1,7 @@
+<ul>
+	<li class="btn light" data-ng-repeat="app in apps track by $index" data-ng-class="app.icon">
+		<a data-ng-href="{{app.path}}" data-ng-bind="app.label" target="_blank"></a>
+	</li>
+	
+	<li class="btn light new"><a>&nbsp;</a></li>
+</ul>

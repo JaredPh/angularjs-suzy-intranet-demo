@@ -1,0 +1,13 @@
+<li>
+	<div class="avatar" data-ng-style="getAvatar()"></div>
+	<div>
+		<a class="name">
+			<span data-ng-bind="person.fname"></span>&nbsp;<span data-ng-bind="person.lname"></span>
+		</a>
+		<p class="job" data-ng-bind="person.job"></p>
+		<p class="tel">
+			Tel:&nbsp;<span data-ng-bind="person.tel | peoplePhoneNumber"></span>&nbsp;Ext:&nbsp;<span data-ng-bind="person.ext"></span>
+		</p>
+		<a class="mailto" data-ng-href="{{'mailto:'+person.email}}">&nbsp;</a>
+	</div>
+</li>

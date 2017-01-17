@@ -1,0 +1,66 @@
+<div>
+	
+	<h1 class="page-heading" data-ng-bind="title"></h1>
+
+	<page:breadcrumb></page:breadcrumb>
+	
+	<form name="newsForm">
+		
+		<div id="news-article" class="edit">
+
+			<div class="title" data-label="Title">
+				<input data-ng-model="editStory.title">
+			</div>
+
+			<div data-ckeditor contentditable="true" data-ng-model="editStory.intro" class="intro" data-label="Intro">
+			
+			</div>
+
+			<div data-ckeditor contentditable="true" data-ng-model="editStory.body" class="body" data-label="Body"></div>
+
+		</div>
+
+		<div class="side">
+			<a class="update btn" href="#">Update</a>
+
+			<section class="details">
+				<h3>Details</h3>
+				<p>
+					<span class="field">Author: </span>
+					<span class="value"><a href="#">Jared Phayer</a></span>
+				</p>
+				<p>
+					<span class="field">Created: </span>
+					<span class="date value" data-ng-cloak>{{editStory.date | timeago:'time'}}</span>
+				</p>
+				<p>
+					<span class="field">Comments: </span>
+					<span class="value"><a href="#">Off</a></span>
+				</p>
+				<p>
+					<span class="field">Promote: </span>
+					<span class="value"><a href="#">On</a></span>
+				</p>
+			</section>
+
+			<section class="article-tags">
+				<h3>Tags</h3>
+				<tags data-tag-list="editStory.tags" data-add="true"></tags>
+			</section>
+
+			<section class="featured-image">
+				<h3>Featured Image</h3>
+				<div><img data-ng-src="{{editStory.image.url}}"/></div>
+				
+				<label>Position:</label>
+				<select>
+					<option>Full Width</option>
+					<option>Left</option>
+					<option>Center</option>
+					<option>Right</option>
+				</select>
+			</section>
+		</div>
+
+	</form>
+</div>

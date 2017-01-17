@@ -1,0 +1,311 @@
+#news-article {
+
+	margin-bottom: 720px;
+	
+	@extend %main-feature-with-sidebar;
+
+	header {
+
+		margin-bottom:16px;
+		h2 {
+			float: left;
+
+			a {
+				display: inline-block;
+
+				width: 32px;
+				height: 32px;
+
+				@include es-btn-opacity;
+				@include es-bg-icon-pos(22px);
+				@include background-icon('edit-file','this','o');
+
+				text-indent: -999px;
+			}
+		}
+	}	
+	
+	.tags {
+		@extend %tags;
+		margin-top: 8px;
+		@include es-clearfix;
+
+		li {margin:5px 0 5px 5px}
+	}
+	
+	li {
+		list-style: disc;
+		list-style-position: inside;
+	}
+
+	img.feature {
+
+		margin: 16px;
+		margin-top: 0;
+
+		&.full {width: calc(100% - 32px);}
+
+		&.left {
+			width: 48%;
+			float: left;
+		}
+
+		&.center {width: 48%;}
+
+		&.right {width: 48%;float: right;}
+	}
+
+	&.add, &.edit {
+		
+		div {
+			
+			@include clearfix;
+
+			position:relative;
+			
+			margin-top: 28px;
+			margin-bottom: 8px;
+
+			padding: 16px;
+			border: 1px solid $navy;
+
+			border-top-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+
+			&.title, &.tags {
+				padding: 6px 8px;
+
+				input {
+					width: calc(100% - 16px);
+				    border: none;
+				    line-height: 33px;
+				}
+			}
+			
+			&:before {
+				
+				content: attr(data-label);
+
+				display: block;
+
+				position: absolute;
+				top: -20px;
+				left: -1px;
+
+				min-width: 80px;
+				height: 20px;
+
+				font-size: 14px;
+				line-height: 20px;
+
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+
+				text-align: center;
+
+				background-color: $navy;
+				color: $white;
+			}
+		}
+	}
+}
+
+#news-article ~ .side {
+	
+	@include span(1);
+	
+	margin-top: gutter();
+	margin-bottom: gutter();
+
+
+	article.preview {
+		min-height: 280px;
+    	padding-bottom: 50px;
+
+		.text {
+			padding-bottom: 40px;
+		}
+	}
+}
+
+article.preview {
+
+	width:100%;
+	height: 100%;
+
+	position: relative;
+
+	background-color: $white;
+	@include es-dropshadow;
+
+	.image {@include es-bg-img-pos;}
+	
+	.text {
+
+		position: absolute;
+		
+    	bottom: 0;
+		
+		> * {
+			margin: 0 8px;
+		}
+
+		h3 {
+		    margin-top: 16px;
+    		line-height: 20px;
+		}
+
+		.abstract {
+			//margin-top: -8px;
+			font-size: 14px;
+			max-height: 90px;
+    		overflow: hidden;
+		}
+		
+		.date {
+			@include es-bg-icon-pos(16px,left);
+			@include es-bg-icon('time','n');
+			padding-left: 20px;
+
+			font-size: 12px;
+			line-height: 16px;
+		}
+
+		.tags {
+			@extend %tags;
+			position: absolute;
+
+			bottom: 8px;
+			right: 0;
+		}
+	}
+
+	.col-1 &, .col-2 & {
+		.image {
+			height: 145px;
+		}
+
+		.text {
+			margin-top: -8px;
+			top: 150px;
+			width: 100%;
+		}
+	}
+
+	.col-3 & {
+		> div {
+			@include span(1 of 2 nest);
+			float: right;
+			height: 100%;
+		}
+
+		.text {
+		}
+	}
+	.col-4 & {}
+}
+
+#news-article.add ~ .side, #news-article.edit ~ .side {
+	
+	a.update.btn {
+
+		@include es-dropshadow;
+
+    	color: $white;
+    	background: $navy;
+    	
+    	border-radius: 5px;
+    
+    	display: block;
+    	
+    	line-height: 16px;
+    	padding: 16px 8px;
+    	text-align: center;
+    	margin-bottom: 16px;
+	}
+
+	section {
+		background-color: $white;
+		margin-bottom: 16px;
+		padding: 16px;
+
+		&.details p {
+		    margin: 0;
+    		font-size: 12px;
+
+			.field {
+		    	font-weight: bold;
+			    min-width: 72px;
+			    display: inline-block;
+		    }
+		}
+		
+		&.article-tags {
+			@extend %tags;
+			
+			.tags {
+
+				margin-top: 8px;
+				@include es-clearfix;
+
+				li {
+					float: left !important;
+
+					.remove {
+						display: inline-block;
+
+						width: 20px;
+						height: 20px;
+
+						margin: -6px 0 -6px 3px;
+
+						@include es-btn-opacity;
+						@include es-bg-icon-pos(12px,4px);
+						@include es-bg-icon('cancel');
+					}
+
+					&.add {
+						@include es-btn-opacity;
+						@include es-bg-icon-pos(12px,4px);
+						@include es-bg-icon('add');
+
+						border-color: #000;
+						color: #000;
+					}
+				}
+			}
+		}
+
+		&.featured-image div {
+			margin: 12px 0;
+			width: 100%;
+			border: 1px solid $navy;
+			border-radius: 5px;
+			position: relative;
+			overflow: hidden;
+			padding:0;
+
+			&:before {
+			    position: absolute;
+			    content: '';
+			    background: $navy;
+			    height: 96px;
+			    width: 96px;
+			    top: -48px;
+			    right: -48px;
+			    transform-origin: 50% 50%;
+			    transform: rotate(-45deg);
+
+			    @include es-bg-icon-pos(28px, 10%,50%);
+				@include es-bg-icon('replace','w');
+			}
+
+			img {
+				margin: -5px 0;
+				width: 100%;
+			}
+		}
+	}
+}
+

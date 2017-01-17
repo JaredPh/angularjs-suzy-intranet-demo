@@ -1,0 +1,80 @@
+.widget.stock {
+    
+    height:100%;
+    position: relative;
+    
+    @include es-loader('stock', $white, 36px + 16px);// h3 margin + height
+
+    background-color: $green;
+    &.down {background-color: $red;}
+
+    .current {
+        padding: 8px;
+        
+        h3,& {
+            color: $white !important;
+        }
+
+        h3 {
+            margin-top: 8px;
+            font-size:36px;
+        }
+
+        .price {
+            font-size:54px;
+            line-height: 54px;
+            display: block;
+        }
+        .change {
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
+
+    small {
+        display: block;
+        margin-top: -28px;
+        
+        text-align: center;
+        color: $white;
+    }
+
+    .ct-chart {
+
+        margin-top:16px;
+
+        .ct-line {
+            stroke: $white;
+            stroke-width: 2px;
+        }
+
+        .ct-area {
+            fill: $white;
+            opacity: 0.3;
+        }
+
+        .ct-labels foreignObject {
+            span {
+                color:transparent !important;
+            }
+        
+            &:first-child, &:last-child {
+                span {color: $white !important;};
+            }
+        }
+
+        .ct-grid {
+            
+            stroke-dasharray: 0;
+
+            &.ct-horizontal, &.ct-vertical {
+                display:none;
+            }
+
+            &.ct-horizontal:first-child, &.ct-horizontal + .ct-vertical {
+                display: block !important;
+                stroke: $white;
+            }        
+        }
+    }
+}

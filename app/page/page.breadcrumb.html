@@ -1,0 +1,8 @@
+<div class="breadcrumb">
+	<a ui-sref="home">Home</a>
+	<span>&nbsp;&gt;&nbsp;</span>
+	<span data-ng-repeat="page in path track by $index">
+		<a data-ng-bind="getLabel(page.data.label)" ui-sref="{{page.name}}"></a>
+		<span data-ng-if="!$last">&nbsp;&gt;&nbsp;</span>
+	</span>
+</div>

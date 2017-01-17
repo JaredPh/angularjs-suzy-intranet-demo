@@ -1,0 +1,86 @@
+[data-people-menu] {
+	@include es-topbar-menu(300px);
+	
+	padding: 0;
+
+	input {
+		border-radius: 2px;
+		border: 1px solid $es-navy;;
+   		
+   		padding:8px;
+   		margin:16px;
+   		
+   		width: 246px;
+	}
+
+	ul {
+		margin: 0;
+    	
+    	max-height: 60vh;
+    	
+    	overflow-x: auto;
+    	
+    	border-top: 1px solid $grey-one;;
+	}
+
+	li {
+		position: relative;
+
+    	padding: 12px;
+    	border-bottom: 1px solid $grey-one;;
+		
+		.avatar {
+
+		    width: 64px;
+		    height: 64px;
+
+		    float: left;
+
+		    margin-top: -4px;
+		    margin-right: 8px;
+
+		    border-radius: 50%;
+		    border: 2px solid #f48e1e;
+
+		    background-position: center center;
+		    background-size: cover;
+		    border-color: $es-orange;
+			@include es-dropshadow;
+		}
+
+		.name {
+		    font-size: 16px;
+		    line-height:16px;
+		}
+
+		.job {
+		    font-size: 12px;
+		    line-height:16px;
+		    margin: 0;
+		}
+
+		.tel {
+		    height: 16px;
+		    font-size: 11px;
+		    line-height:18px;
+		    margin: 0;
+		}
+
+		.mailto {
+			display:block;
+			
+			width: 16px;
+			height: 16px !important;
+
+			position: absolute;
+
+			right: 8px;
+			top: 28px;
+
+			//background-size: 16px !important;
+			//@include background-icon('email','this');
+			@include es-bg-icon('email');
+			@include es-bg-icon-pos(16px);
+		}
+	}
+}

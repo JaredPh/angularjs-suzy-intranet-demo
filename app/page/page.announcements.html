@@ -1,0 +1,8 @@
+<ul id="service-desk" data-ng-if="announcements.length > 0">
+	<li data-ng-repeat="announcement in announcements" data-ng-show="isVisable($index)" data-ng-class="announcement.status">
+		<h2 data-ng-bind="announcement.heading"></h2>
+		<span data-ng-bind="announcement.time | timeago:'time'"></span>
+		<div data-ng-bind-html="announcement.body"></div>
+	</li>
+	<a data-ng-class="(showAll) ? 'less' : 'more'" data-ng-if="announcements.length > 1" data-ng-click="toggleShowAll()" data-ng-bind="getMoreButtonText()"></a>
+</ul>

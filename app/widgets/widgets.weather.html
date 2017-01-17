@@ -1,0 +1,23 @@
+ <section class="widget weather">
+	
+	<div class="today" data-ng-class="'code-'+weather.now.code">
+		<h3 class="location">{{weather.location | capitalize}}</h3>
+		
+		<span class="icon"></span>
+		<span class="temp" data-ng-bind="weather.now.temp | unit:'degrees'"></span>
+	</div>
+	
+	<div class="forecast" data-ng-repeat="day in weather.forecast | limitTo:5"  data-ng-class="'code-'+day.code">
+		
+		<span class="day" data-ng-bind="day.day"></span>
+		<span class="icon"></span>
+
+		<div class="meter">
+			<div data-ng-style="setMeter(day)" data-high="{{day.high}}" data-low="{{day.low}}">
+			</div>
+		</div>
+
+	</div>
+
+	<div class="loader" data-ng-hide="weather.location"></div>
+</section>

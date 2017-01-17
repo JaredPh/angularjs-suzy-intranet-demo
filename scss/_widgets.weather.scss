@@ -1,0 +1,230 @@
+.widget.weather {
+
+    background-color: $white;
+    height:100%;
+    position: relative;
+
+    @include es-dropshadow;
+
+    @include es-loader('weather', $blue-one, 36px + 16px);
+
+	.icon {
+    	height: 0;    	
+	}
+
+	.today {
+
+        $today-icon-size: 36px;
+
+        padding: 8px 8px 0 8px;
+
+        @include es-clearfix;
+
+        .location {
+            float: left;
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        span {
+            line-height: $today-icon-size;
+            float: right;
+
+            &.icon {
+                display: inline-block;
+                
+                width: $today-icon-size;
+                padding-bottom: $today-icon-size;
+
+                @include es-bg-icon-pos($today-icon-size);
+            }
+
+            &.temp {
+                font-size: 26px;
+            }
+        }
+	}
+	
+	.forecast {
+	    display: inline-block;
+        height: calc(100% - 52px);
+        
+	    width: 20%;
+    	
+    	text-align: center;
+
+    	.day {
+    		display: block;
+    	
+    		line-height: 16px;
+    		font-size: 11px;
+    	}
+
+    	.icon {
+    		display: block;
+    		
+    		padding-bottom: 32px;
+    		
+    		width: 100%;
+
+            @include es-bg-icon-pos();
+    	}
+	}
+
+	.meter {
+    	position: relative;
+        height: calc(100% - 104px);
+    	
+        margin: 16px 0;
+
+    	div {
+    		position: absolute;
+    		
+    		left: -8px;
+
+    		margin-left: 50%;
+
+    		min-height: 16px;
+    		width: 16px;
+
+    		border: 1px solid $navy;
+    		border-radius: 100px;
+
+    		background-color: $blue-one;
+
+    		&:before, &:after {
+    			display: block;
+    			
+    			position: absolute;
+
+    			left: 0;			
+    			
+    			height: 16px;
+    			width: 16px;			
+    			
+    			font-size: 10px;
+    		}
+
+    		&:before {
+    			content: attr(data-high);
+    			top: -16px;
+			}
+			
+			&:after {
+    			content: attr(data-low);
+    			bottom: -16px;
+			}
+    	}
+    }
+}
+
+
+.code-0    {@extend %weather-icon-storm;}//tornado
+.code-1    {@extend %weather-icon-storm;}//tropical storm
+.code-2    {@extend %weather-icon-storm;}//hurricane
+.code-3    {@extend %weather-icon-storm;}//severe thunderstorms
+.code-4    {@extend %weather-icon-storm;}//thunderstorms
+.code-5    {@extend %weather-icon-rain-snow;}//mixed rain and snow
+.code-6    {@extend %weather-icon-rain-snow;}//mixed rain and sleet
+.code-7    {@extend %weather-icon-snow;}//mixed snow and sleet
+.code-8    {@extend %weather-icon-rain;}//freezing drizzle
+.code-9    {@extend %weather-icon-rain-light;}//drizzle
+.code-10   {@extend %weather-icon-rain;}//freezing rain
+.code-11   {@extend %weather-icon-rain;}//showers
+.code-12   {@extend %weather-icon-rain;}//showers
+.code-13   {@extend %weather-icon-snow;}//snow flurries
+.code-14   {@extend %weather-icon-snow;}//light snow showers
+.code-15   {@extend %weather-icon-snow;}//blowing snow
+.code-16   {@extend %weather-icon-snow;}//snow
+.code-17   {@extend %weather-icon-hail;}//hail
+.code-18   {@extend %weather-icon-rain-snow;}//sleet
+.code-19   {@extend %weather-icon-fog;}//dust
+.code-20   {@extend %weather-icon-fog;}//foggy
+.code-21   {@extend %weather-icon-fog;}//haze
+.code-22   {@extend %weather-icon-fog;}//smoky
+.code-23   {@extend %weather-icon-windy;}//blustery
+.code-24   {@extend %weather-icon-windy;}//windy
+.code-25   {@extend %weather-icon-rain-snow;}//cold
+.code-26   {@extend %weather-icon-cloud;}//cloudy
+.code-27   {@extend %weather-icon-cloud;}//mostly cloudy (night)
+.code-28   {@extend %weather-icon-cloud;}//mostly cloudy (day)
+.code-29   {@extend %weather-icon-cloud;}//partly cloudy (night)
+.code-30   {@extend %weather-icon-cloud;}//partly cloudy (day)
+.code-31   {@extend %weather-icon-clear;}//clear (night)
+.code-32   {@extend %weather-icon-sunny;}//sunny
+.code-33   {@extend %weather-icon-clear;}//fair (night)
+.code-34   {@extend %weather-icon-sunny;}//fair (day)
+.code-35   {@extend %weather-icon-hail;}//mixed rain and hail
+.code-36   {@extend %weather-icon-hot;}//hot
+.code-37   {@extend %weather-icon-storm;}//isolated thunderstorms
+.code-38   {@extend %weather-icon-storm;}//scattered thunderstorms
+.code-39   {@extend %weather-icon-storm;}//scattered thunderstorms
+.code-40   {@extend %weather-icon-rain-light;}//scattered showers
+.code-41   {@extend %weather-icon-snow;}//heavy snow
+.code-42   {@extend %weather-icon-rain-snow;}//scattered snow showers
+.code-43   {@extend %weather-icon-snow;}//heavy snow
+.code-44   {@extend %weather-icon-cloud-part;}//partly cloudy
+.code-45   {@extend %weather-icon-storm;}//thundershowers
+.code-46   {@extend %weather-icon-rain-snow;}//snow showers
+.code-47   {@extend %weather-icon-storm;}//isolated thundershowers
+.code-3200 {@extend %weather-icon-unknown;}//not available   
+
+%weather-icon-clear {
+    &.today .icon { @include es-bg-icon('weather-fine');}
+    &.forecast .icon { @include es-bg-icon('weather-fine','o');}
+}
+%weather-icon-cloud {
+    &.today .icon { @include es-bg-icon('weather-cloud');}
+    &.forecast .icon { @include es-bg-icon('weather-cloud','o');}
+}
+%weather-icon-cloud-part {
+    &.today .icon { @include es-bg-icon('weather-cloud-part');}
+    &.forecast .icon { @include es-bg-icon('weather-cloud-part','o');}
+}
+%weather-icon-fog {
+    &.today .icon { @include es-bg-icon('weather-fog');}
+    &.forecast .icon { @include es-bg-icon('weather-fog','o');}
+}
+%weather-icon-hail {
+    &.today .icon { @include es-bg-icon('weather-hail');}
+    &.forecast .icon { @include es-bg-icon('weather-hail','o');}
+}
+%weather-icon-hot {
+    &.today .icon { @include es-bg-icon('weather-sun');}
+    &.forecast .icon { @include es-bg-icon('weather-sun','o');}
+}
+%weather-icon-rain {
+    &.today .icon { @include es-bg-icon('weather-rain');}
+    &.forecast .icon { @include es-bg-icon('weather-rain','o');}
+}
+%weather-icon-rain-light {
+    &.today .icon { @include es-bg-icon('weather-rain-mod');}
+    &.forecast .icon { @include es-bg-icon('weather-rain-mod','o');}
+}
+%weather-icon-rain-snow {
+    &.today .icon { @include es-bg-icon('weather-sleet');}
+    &.forecast .icon { @include es-bg-icon('weather-sleet','o');}
+}
+
+%weather-icon-snow {
+    &.today .icon { @include es-bg-icon('weather-snow');}
+    &.forecast .icon { @include es-bg-icon('weather-snow','o');}
+}
+%weather-icon-storm {
+    &.today .icon { @include es-bg-icon('weather-storm');}
+    &.forecast .icon { @include es-bg-icon('weather-storm','o');}
+}
+
+%weather-icon-sunny {
+    &.today .icon { @include es-bg-icon('weather-sun');}
+    &.forecast .icon { @include es-bg-icon('weather-sun','o');}
+}
+
+%weather-icon-unknown {
+    &.today .icon { @include es-bg-icon('help');}
+    &.forecast .icon { @include es-bg-icon('help','o');}
+}
+%weather-icon-windy {
+    &.today .icon { @include es-bg-icon('weather-wind');}
+    &.forecast .icon { @include es-bg-icon('weather-wind','o');}
+}
